@@ -1,0 +1,351 @@
+{%extends './base.html'%}
+
+{% block tittle%} Fly clouds {% endblock%}
+
+{% block body%}
+<!-- Vincula tu CSS desde la carpeta templates/CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/4-2-catalogo_alojamiento.css')}}">
+
+<div class="salvadora"></div>
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis banner"
+    style="background: linear-gradient(rgb(255, 30, 30), rgb(253, 255, 113));">
+    <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic"><b>Fly</b> and stay like in the <b>Clouds </b></h1>
+        <p class="lead my-3">Explora la completa diversidad que puedes hallar en todo nuestro continente, lleno de
+            gastronomía y cultura.</p>
+        <p class="lead mb-0"><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank"
+                class="text-body-emphasis fw-bold">Continua leyendo...</a></p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container mt-3 sub_caja_filtros">
+                <br>
+                <center>
+                    <h2><i class="bi bi-funnel-fill"></i>Filtros</h2><br>
+                </center>
+                <div class="flex-shrink-0 p-3 bg-white" style="width: 380px;">
+                    <ul class="list-unstyled ps-0">
+                      <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#mexico-collapse" aria-expanded="false">
+                            <strong><i class="bi bi-chevron-right"></i>Mexico</strong>
+                        </button>
+                        <div class="collapse show" id="mexico-collapse">
+                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a class="link-dark rounded" id="mostrar_ciudad_de_mexico">Ciudad de Mexico</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_guadalajara">Guadalajara</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_chihuahua">Chihuahua</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#colombia-collapse" aria-expanded="false">
+                          <strong><i class="bi bi-chevron-right"></i>Colombia</strong>
+                        </button>
+                        <div class="collapse" id="colombia-collapse">
+                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a class="link-dark rounded" id="mostrar_medellin">Medellín</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_bogota">Bogotá</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_cali">Cali</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chile-collapse" aria-expanded="false">
+                          <strong><i class="bi bi-chevron-right"></i>Chile</strong>
+                        </button>
+                        <div class="collapse" id="chile-collapse">
+                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a class="link-dark rounded" id="mostrar_santiago">Santiago</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_arica">Arica</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_iquique">Iquique</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#argentina-collapse" aria-expanded="false">
+                          <strong><i class="bi bi-chevron-right"></i>Argentina</strong>
+                        </button>
+                        <div class="collapse" id="argentina-collapse">
+                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a class="link-dark rounded" id="mostrar_buenos_aires">Buenos Aires</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_cordoba">Córdoba</a></li>
+                            <li><a class="link-dark rounded" id="mostrar_santa_fe">Santa Fe</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#brasil-collapse" aria-expanded="false">
+                            <strong><i class="bi bi-chevron-right"></i>Brasil</strong>
+                          </button>
+                          <div class="collapse" id="brasil-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a class="link-dark rounded" id="mostrar_sao">Sao Paulo</a></li>
+                                <li><a class="link-dark rounded" id="mostrar_brasilia">Brasilia</a></li>
+                                <li><a class="link-dark rounded" id="mostrar_rio">Río de Janeiro</a></li>
+                            </ul>
+                          </div>
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-3 sub_caja_cartillas">
+
+                <div class="row margen_cartillas20">
+                    <div class="col-md-6 card_responsive seccion1" id="buenos_aires">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/alvear.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Buenos Aires, Argentina</h4>
+                                <h4 class="card-title">Hotel Alvear Palace</h4>
+                                <p class="card-text">
+                                    Un hotel de lujo ubicado en el barrio de Recoleta, conocido
+                                    por su elegancia clásica y servicios excepcionales.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion1" id="ciudad_de_mexico">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/historico.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Ciudad de México, México</h4>
+                                <h4 class="card-title">Hotel Histórico Central</h4>
+                                <p class="card-text">
+                                    Ubicado en el centro histórico, ofrece una combinación de diseño 
+                                    contemporáneo con toques históricos y servicio personalizado.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion1" id="guadalajara">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/demetria.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Guadalajara, México</h4>
+                                <h4 class="card-title">Hotel Demetria</h4>
+                                <p class="card-text">
+                                    Un elegante hotel boutique que mezcla diseño moderno 
+                                    con una atmósfera artística, ubicado en la colonia Lafayette.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion1" id="chihuahua">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/sheraton.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Chihuahua, México</h4>
+                                <h4 class="card-title">Sheraton Chihuahua Soberano</h4>
+                                <p class="card-text">
+                                    Un hotel moderno que ofrece vistas impresionantes de la ciudad y 
+                                    amplias comodidades para viajeros de negocios y placer.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion2" id="cali">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/chipichape.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Cali, Colombia</h4>
+                                <h4 class="card-title">Hotel Spiwak Chipichape</h4>
+                                <p class="card-text">
+                                    Situado dentro de un centro comercial, es ideal para aquellos que 
+                                    buscan comodidad y acceso a tiendas y entretenimiento.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion2" id="bogota">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/opera.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Bogotá, Colombia</h4>
+                                <h4 class="card-title">Hotel de la Opera</h4>
+                                <p class="card-text">
+                                    Situado en el corazón de la Candelaria, ofrece una experiencia de 
+                                    lujo con un toque histórico en un edificio colonial restaurado.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion2" id="medellin">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/charlee.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Medellín, Colombia</h4>
+                                <h4 class="card-title">The Charlee Hotel</h4>
+                                <p class="card-text">
+                                    Un hotel moderno ubicado en El Poblado, famoso por su diseño 
+                                    innovador, sus vistas panorámicas y su vida nocturna cercana.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion2" id="santiago">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/lastarria.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Santiago de Chile, Chile</h4>
+                                <h4 class="card-title">Hotel Cumbres Lastarria</h4>
+                                <p class="card-text">
+                                    Un elegante hotel boutique ubicado en el vibrante barrio Lastarria, 
+                                    perfecto para disfrutar de la vida cultural de Santiago.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion3" id="arica">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/panamericana.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Arica, Chile</h4>
+                                <h4 class="card-title">Panamericana Hotel Arica</h4>
+                                <p class="card-text">
+                                    Ubicado frente al océano, este hotel es ideal para quienes buscan relajarse en la playa con vistas al mar.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion3" id="iquique">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/iquique.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Iquique, Chile</h4>
+                                <h4 class="card-title">Hotel Terrado Suites Iquique</h4>
+                                <p class="card-text">
+                                    Un hotel frente al mar con amplias suites y vistas espectaculares al Océano Pacífico.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion3" id="cordoba">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/azur.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Córdoba, Argentina</h4>
+                                <h4 class="card-title">Azur Real Hotel Boutique</h4>
+                                <p class="card-text">
+                                    Un encantador hotel boutique en el centro histórico, que combina diseño moderno con toques coloniales.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 card_responsive seccion3" id="santa_fe">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/intertower.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Santa Fe, Argentina</h4>
+                                <h4 class="card-title">InterTower Hotel</h4>
+                                <p class="card-text">
+                                    Ofrece un ambiente moderno en pleno centro de la ciudad, con fácil acceso a los principales puntos turísticos.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion4" id="sao">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/unique.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title destino">Sao Paulo, Brasil</h4>
+                                <h4 class="card-title">Hotel Unique</h4>
+                                <p class="card-text">
+                                    Un hotel de diseño icónico con una arquitectura 
+                                    impresionante y un rooftop con vistas panorámicas de la ciudad.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion4" id="brasilia">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/royal.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Brasilia, Brasil</h4>
+                                <h4 class="card-title">Royal Tulip Brasilia Alvorada</h4>
+                                <p class="card-text">
+                                    Ubicado cerca del Palacio de Alvorada, ofrece lujo y comodidad en un entorno rodeado de naturaleza.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion4" id="rio">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/copacabana.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Río de Janeiro, Brasil</h4>
+                                <h4 class="card-title">Belmond Copacabana Palace</h4>
+                                <p class="card-text">
+                                    Un hotel histórico frente a la famosa playa de Copacabana, conocido por su glamour y atención al detalle.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card_responsive seccion4" id="buenos_aires">
+                        <div class="card margen_card" style="width:100%">
+                            <img class="card-img-top" src="{{ url_for('static', filename='img/alojamiento/faena.jpg') }}"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Buenos Aires, Argentina</h4>
+                                <h4 class="card-title">Hotel Faena Buenos Aires</h4>
+                                <p class="card-text">
+                                    Ubicado en el moderno barrio de Puerto Madero, este hotel combina lujo contemporáneo 
+                                    con un diseño artístico único, ofreciendo una experiencia sofisticada.
+                                </p>
+                                <a href="#" class="btn btn-primary"> Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="container mt-3">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" id="grupo1" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo2" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo3" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo4" href="#">4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/servicio.js')}}"></script>
+<script src="{{ url_for('static', filename='js/filtros.js')}}"></script>
+<script src="{{ url_for('static', filename='js/secciones.js')}}"></script>
+{% endblock%}
