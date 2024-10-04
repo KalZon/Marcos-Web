@@ -1,0 +1,417 @@
+{%extends './base.html'%}
+
+{% block tittle%} Fly clouds {% endblock%}
+
+{% block body%}
+<!-- Vincula tu CSS desde la carpeta templates/CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/4-1-catalogo_vuelos.css')}}">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<div class="salvadora"></div>
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis banner"
+    style="background: linear-gradient(rgb(123 32 203), rgb(247 170 133));">
+    <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic"><b>Fly</b> and stay like in the <b>Clouds </b></h1>
+        <p class="lead my-3">Explora la completa diversidad que puedes hallar en todo nuestro continente, lleno de
+            gastronomía y cultura.</p>
+        <p class="lead mb-0"><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank"
+                class="text-body-emphasis fw-bold">Continua leyendo...</a></p>
+    </div>
+</div>
+<div class="container-fluid"><br>
+    <!--Esta sera pa la parte donde presentamos la barra de busqueda-->
+    <div class="row">
+        <div class="col-md-12 centrar_busqueda">
+            <h2></h2>
+            <form class="d-flex">
+                <input class="form-control me-2 barra_busqueda" type="text" placeholder="Buscar el vuelo o alojamiento">
+                <button class="buttom_busqueda" type="button"
+                    onclick="alert('Has hecho clic en el botón de búsqueda')">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <hr style="border: 1px solid #000000; width: 80%; margin: 20px auto;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container mt-3 sub_caja_filtros">
+                <br>
+                <center>
+                    <h2>Filtros de busqueda para vuelos</h2>
+                </center>
+                <p>
+                    <strong>Nota:</strong> The
+                    <strong>data-bs-parent</strong>
+                    Selecciona el destino al cual quieres llegar y luego selecciona desde donde quieres partir
+                </p>
+                <div id="accordion">
+                    <div class="card color_acordeon">
+                        <div class="card-header">
+                            <a class=" btn color_acordeon" data-bs-toggle="collapse" href="#collapseOne">
+                                Perú
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse">
+                            <div class="acordeon_cuerpo">
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card color_acordeon">
+                        <div class="card-header">
+                            <a class="collapsed btn color_acordeon" data-bs-toggle="collapse" href="#collapseTwo">
+                                Colombia
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse">
+                            <div class="acordeon_cuerpo">
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card color_acordeon">
+                        <div class="card-header">
+                            <a class="collapsed btn color_acordeon" data-bs-toggle="collapse" href="#collapseThree">
+                                Chile
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse">
+                            <div class="acordeon_cuerpo">
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card color_acordeon">
+                        <div class="card-header">
+                            <a class="collapsed btn color_acordeon" data-bs-toggle="collapse" href="#collapseFour">
+                                Argentina
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse">
+                            <div class="acordeon_cuerpo">
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card color_acordeon">
+                        <div class="card-header">
+                            <a class="collapsed btn color_acordeon" data-bs-toggle="collapse" href="#collapseFive">
+                                Brazil
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="collapse">
+                            <div class="acordeon_cuerpo">
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                                <a href="" class="links_filtros">Lugar turistico</a><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#############################################################-->
+        <!-- ESTE MODAL SERA SOLO PARA LAS RESERVAS -->
+        <div class="modal" id="myModal_reserva" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog custom-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="login">Selección de Vuelo</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="alpha">
+                                <form action="/add_contactos" method="POST">
+                                    <div class="hijo">
+                                        <label for="destino_final">Destino: </label>
+                                        <input type="text" id="destino_final" name="destino" placeholder="Ingresa el destino" required readonly/>
+                                    </div><br>
+                                    <input type="text" id="demo"><br><br>
+                                    <div>
+                                        <label for="precio_base">Precio base:</label>
+                                        S/. <input style="width: 70px; text-align: center;" type="text" id="precio_base" value="500" readonly/>
+                                    </div><br>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="alpha">
+                                <form id="reservaForm" action="/add_contactos" method="POST">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle asiento" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Asientos
+                                        </button>
+                                        <ul class="dropdown-menu" id="dropdown-menu">
+                                            <li><a class="dropdown-item" style="cursor: pointer;" data-price="1">Económico</a></li>
+                                            <li><a class="dropdown-item" style="cursor: pointer;" data-price="1.5">Premium</a></li>
+                                            <li><a class="dropdown-item" style="cursor: pointer;" data-price="2">Premium Business</a></li>
+                                        </ul>
+                                    </div><br>
+                                    
+                                    <div>
+                                        <label for="cantidad">Cantidad: </label>
+                                        <button style="border-radius: 50%; width: 30px; border: none;" type="button" onclick="decrement()">-</button>
+                                        <input style="text-align: center; width: 50px;" type="number" id="cantidad" name="cantidad" value="1" readonly />
+                                        <button style="border-radius: 50%; width: 30px; border: none;" type="button" onclick="increment()">+</button>
+                                    </div><br>
+                                    
+                                    <div>
+                                        <label for="precio_final">Precio Total: </label>
+                                        S/. <input style="width: 70px; text-align: center;" type="text" id="precio_final" name="precio" readonly/>
+                                    </div><br>                               
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="hijo">
+                            <button onclick="enviar(this)" type="submit" class="registrar_datos" data-bs-toggle="modal" data-bs-target="#myModal_listo">Enviar datos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Esta es la confirmacion de un modal de AYUDA DIRECTA -->
+        <div class="modal" id="myModal_listo" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Solicitud de información</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="alert alert-success">
+                            <strong>¡Éxito!</strong> Información enviada correctamente..
+                        </div>
+                        <img src="{{ url_for('static', filename='img/honguito.jpg') }}" alt="" width="100%" height="300px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#############################################################-->
+        <div class="col-md-8">
+            <div class="container mt-3 sub_caja_cartillas">
+                <!--ESTA ES LA PRIMERA SECCION NUMERO 1-->
+                <div class="seccion1">
+                    <div class="row margen_cartillas20">
+                        <div class="col-md-6 card_responsive" id="argentina">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Buenos Aires,</h4>
+                                    <h4 class="card-title">Argentina</h4>
+                                    <p class="card-text">
+                                        La vibrante capital de Argentina, famosa por su arquitectura
+                                        europea, el tango y la deliciosa carne asada.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 500</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card_responsive" id="argentina">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Bariloche, </h4>
+                                    <h4 class="card-title">Argentina</h4>
+                                    <p class="card-text">
+                                        Ubicada en la región de los lagos, ofrece paisajes impresionantes
+                                        con montañas nevadas y es un destino popular para el esquí.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 350</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Otra linea de seccion-->
+                    <div class="row margen_cartillas20">
+                        <div class="col-md-6 card_responsive" id="argentina">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Mendoza,</h4>
+                                    <h4 class="card-title">Argentina</h4>
+                                    <p class="card-text">
+                                        Conocida por sus viñedos y la imponente Cordillera de los Andes,
+                                        es el lugar perfecto para los amantes del vino.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 550</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card_responsive" id="argentina">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Cataratas del Iguazú, </h4>
+                                    <h4 class="card-title">Argentina</h4>
+                                    <p class="card-text">
+                                        Una de las maravillas naturales del mundo, estas impresionantes
+                                        cataratas están rodeadas por selva tropical.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 750</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Otra linea de seccion-->
+                    <div class="row margen_cartillas20">
+                        <div class="col-md-6 card_responsive" id="argentina">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Salta,</h4>
+                                    <h4 class="card-title">Argentina</h4>
+                                    <p class="card-text">
+                                        Explora el noroeste argentino con su arquitectura colonial,
+                                        montañas coloridas y rica cultura indígena.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 950</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card_responsive" id="brasil">
+                            <div class="card margen_card" style="width:100%">
+                                <img class="card-img-top" src="{{ url_for('static', filename='img/hilton.avif') }}" alt="Card image">
+                                <div class="card-body">
+                                    <h4 class="card-title destino">Rio de Janeiro, </h4>
+                                    <h4 class="card-title">Brasil</h4>
+                                    <p class="card-text">
+                                        Famosa por el Cristo Redentor, las playas de Copacabana y
+                                        el Carnaval, Río es una ciudad llena de vida y color.
+                                    </p>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <br><h5 style="display: inline-block;"> $<p style="display: inline-block;" class="precio"> 550</p></h5><br>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_reserva" onclick="showName(this)"> Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-3">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" id="grupo1" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo2" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo3" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" id="grupo4" href="#">4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="alert-messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<script src="{{ url_for('static', filename='js/servicio.js')}}"></script>
+<script src="{{ url_for('static', filename='js/obtener_datos.js')}}"></script>
+<script src="{{ url_for('static', filename='js/fecha.js')}}"></script>
+
+<script>
+    // Función para capturar el destino y precio base cuando se abre el modal
+    function showName(element) {
+        let destino = element.closest('.card-body').querySelector('.destino').innerText;
+        let precioBase = element.closest('.card-body').querySelector('.precio').innerText.trim();
+        
+        document.getElementById('destino_final').value = destino;
+        document.getElementById('precio_base').value = precioBase;
+        actualizarPrecio(); // Actualiza el precio total cuando se abre el modal
+    }
+
+    // Incrementa la cantidad
+    function increment() {
+        let input = document.getElementById('cantidad');
+        let currentValue = parseInt(input.value);
+        input.value = currentValue + 1;
+        actualizarPrecio(); // Llama para recalcular el precio
+    }
+
+    // Decrementa la cantidad
+    function decrement() {
+        let input = document.getElementById('cantidad');
+        let currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+        }
+        actualizarPrecio(); // Llama para recalcular el precio
+    }
+
+    // Captura la selección del tipo de asiento y actualiza el precio
+    document.querySelectorAll('#dropdown-menu .dropdown-item').forEach(item => {
+        item.addEventListener('click', function () {
+            let factor = parseFloat(this.getAttribute('data-price'));
+            document.getElementById('reservaForm').setAttribute('data-factor', factor);
+            actualizarPrecio();
+        });
+    });
+
+    // Función para actualizar el precio total
+    function actualizarPrecio() {
+        let precioBase = parseFloat(document.getElementById('precio_base').value);
+        let cantidad = parseInt(document.getElementById('cantidad').value);
+        let factor = document.getElementById('reservaForm').getAttribute('data-factor') || 1; // Por defecto 1 (Económico)
+        
+        let precioFinal = precioBase * cantidad * factor;
+        document.getElementById('precio_final').value = precioFinal.toFixed(2);
+    }
+
+    // Actualiza el precio cuando se hace clic en el botón "Actualizar Precio"
+    document.getElementById('actualizarPrecio').addEventListener('click', actualizarPrecio);
+
+    // Función para restablecer el formulario del modal
+    function resetModal() {
+        document.getElementById('destino_final').value = ''; // Restablece el destino
+        document.getElementById('cantidad').value = '1'; // Restablece la cantidad a 1
+        document.getElementById('precio_final').value = ''; // Limpia el precio final
+        document.getElementById('reservaForm').setAttribute('data-factor', '1'); // Restablece el factor a Económico
+    }
+
+    // Evento que se dispara cuando el modal se cierra
+    document.getElementById('myModal_reserva').addEventListener('hide.bs.modal', function () {
+        resetModal();
+    });
+
+</script>
+
+{% endblock%}

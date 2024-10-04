@@ -1,0 +1,207 @@
+/*TODO SOBRE LA BARRA DE NAVEGACION*/
+.bg-dark {
+    background-color: rgb(2, 6, 90) !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(119, 112, 255);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(61, 80, 225);
+}
+
+.salvadora {
+    background-color: rgb(61, 199, 199);
+    height: 80px;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: #000744 !important;
+
+}
+
+.margen_nav {
+    padding: 15px;
+}
+
+.funcion {
+    transition: all 0.5s;
+}
+
+.funcion:hover {
+    transform: scale(1.8);
+}
+
+.font_size {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 5px 15px !important;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.font_size:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.faber {
+    color: black !important;
+}
+
+.faber:hover {
+    background-color: rgb(152, 228, 228);
+    color: black !important;
+}
+
+.color {
+    background-color: rgb(0, 89, 255);
+}
+
+.colora:hover {
+    background-color: rgb(5, 152, 189);
+    color: white;
+}
+
+.contenedor {
+    position: relative;
+    right: 0;
+    padding-right: 50px;
+}
+
+.nav-link.show {
+    color: #080d49 !important;
+    background-color: white !important;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.btn-admin {
+    background-color: rgb(3, 150, 218);
+    border: 1px solid rgb(0, 183, 255);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgb(0, 195, 255),
+        0 0 25px rgb(1, 211, 226);
+    font-size: 15px;
+    transition: all 0.5s;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-admin:hover {
+    transform: scale(1.1);
+    background-color: rgb(31, 247, 229);
+    border: 1px solid rgb(39, 250, 232);
+    box-shadow: 0 0 5px rgb(38, 246, 253),
+        0 0 10px rgb(47, 255, 186), 0 0 15px rgb(47, 255, 186),
+        0 0 55px rgb(47, 255, 186), 0 0 125px rgb(47, 255, 186);
+    color: rgb(232, 232, 236);
+}
+.login[type=text],
+        select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+.login[type=password],
+        select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+.login[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login[type=submit]:hover {
+    background-color: #45a049;
+}
+.admin {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+/*TODO SOBRE EL FOOTER*/
+.footer {
+    background-color: rgb(26, 26, 39);
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footer a:hover {
+    color: rgb(122, 215, 252);
+    text-decoration: none;
+}
+
+.footer-secciones {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-family: "Times New Roman", Times, serif;
+}
+
+.ajustar-icono {
+    padding-right: 30px;
+    font-size: 25px;
+}
+
+.copy {
+    background-color: #03040a;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/*RESPONSIVIDAD*/
+@media (max-width: 570px) {
+    .footer-secciones {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 40px 30px 10px;
+    }
+
+    .footer-secciones h5 {
+        font-size: 25px;
+    }
+
+    .temporal {
+        display: none;
+    }
+
+}
