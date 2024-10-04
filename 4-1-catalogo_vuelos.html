@@ -359,24 +359,6 @@
         actualizarPrecio(); // Actualiza el precio total cuando se abre el modal
     }
 
-    // Incrementa la cantidad
-    function increment() {
-        let input = document.getElementById('cantidad');
-        let currentValue = parseInt(input.value);
-        input.value = currentValue + 1;
-        actualizarPrecio(); // Llama para recalcular el precio
-    }
-
-    // Decrementa la cantidad
-    function decrement() {
-        let input = document.getElementById('cantidad');
-        let currentValue = parseInt(input.value);
-        if (currentValue > 1) {
-            input.value = currentValue - 1;
-        }
-        actualizarPrecio(); // Llama para recalcular el precio
-    }
-
     // Captura la selección del tipo de asiento y actualiza el precio
     document.querySelectorAll('#dropdown-menu .dropdown-item').forEach(item => {
         item.addEventListener('click', function () {
