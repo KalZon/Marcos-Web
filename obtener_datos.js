@@ -17,16 +17,3 @@ function enviar(){
     console.log(precio)
     console.log(cantidad)
 }
-function increment() {
-    let input = document.getElementById('cantidad');
-    let currentValue = parseInt(input.value);
-    input.value = currentValue + 1;
-}
-
-function decrement() {
-    let input = document.getElementById('cantidad');
-    let currentValue = parseInt(input.value);
-    if (currentValue > 1) {
-        input.value = currentValue - 1;
-    }
-}
