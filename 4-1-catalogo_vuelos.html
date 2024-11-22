@@ -378,8 +378,6 @@
         document.getElementById('precio_final').value = precioFinal.toFixed(2);
     }
 
-    // Actualiza el precio cuando se hace clic en el botón "Actualizar Precio"
-    document.getElementById('actualizarPrecio').addEventListener('click', actualizarPrecio);
 
     // Función para restablecer el formulario del modal
     function resetModal() {
@@ -393,6 +391,21 @@
     document.getElementById('myModal_reserva').addEventListener('hide.bs.modal', function () {
         resetModal();
     });
+    function increment() {
+    let input = document.getElementById('cantidad');
+    let currentValue = parseInt(input.value);
+    input.value = currentValue + 1;
+    actualizarPrecio();
+    }
+
+    function decrement() {
+        let input = document.getElementById('cantidad');
+        let currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+        }
+        actualizarPrecio();
+    }
 
 </script>
 
